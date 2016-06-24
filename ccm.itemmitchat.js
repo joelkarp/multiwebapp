@@ -9,7 +9,7 @@
     name: 'itemmitchat',
     config: {
       instance_items: [ ccm.instance, 'http://mutex.fail/jk/ccm.itemverwaltung.js' ],
-      instance_chat: [ ccm.instance, 'http://akless.github.io/ccm-developer/resources/chat/ccm.chat.js' ],
+      instance_chat: [ ccm.instance, 'http://mutex.fail/bk/ccm.messenger.js' ],
       style: [ccm.load,'style.css']
     },
     Instance: function () {
