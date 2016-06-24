@@ -4,25 +4,26 @@
     component_chat:[ccm.component,'http://mutex.fail/jk/ccm.itemverwaltung.js'],
 */
 
-    /** ccm.blank_chat.js */
-  ccm.component( {              // This component is also available in this
-    name: 'itemmitchat',         // GitHub repository (akless/ccm-developer).
+
+  ccm.component( {
+    name: 'itemmitchat',
     config: {
-      instance_items: [ ccm.instance, 'http://mutex.fail/jk/ccm.itemverwaltung.js' ],  // Integration of two ccm
-      instance_chat: [ ccm.instance, 'http://mutex.fail/jk/ccm.itemverwaltung.js' ]     // instances of different
-    },                                                        // ccm components.
+      instance_items: [ ccm.instance, 'http://mutex.fail/jk/ccm.itemverwaltung.js' ],
+      instance_chat: [ ccm.instance, 'http://akless.github.io/ccm-developer/resources/chat/ccm.chat.js' ],
+      style: [ccm.load,'style.css']
+    },
     Instance: function () {
       this.init = function ( callback ) {
-        this.instance_items.element = ccm.helper.find( this, '.items' );  // Set website area for
-        this.instance_chat.element = ccm.helper.find( this, '.chat' );  // both ccm instances.
+        this.instance_items.element = ccm.helper.find( this, '.ite' );
+        this.instance_chat.element = ccm.helper.find( this, '.chat' );
         callback();
       };
       this.render = function ( callback ) {
         var element = ccm.helper.element( this );
-        element.html( '<div class="items"></div><div class="chat"></div>' );
-        this.instance_items.render();    // Embeds each of both ccm instances
-        this.instance_chat.render();    // in different inner website areas.
+        element.html( '<div class="ite"></div><div class="chat"></div>' );
+        this.instance_items.render();
+        this.instance_chat.render();
         if ( callback ) callback();
       }
     }
-  } );
+  });
