@@ -17,7 +17,7 @@ ccm.component( {              // This component is also available in this
     var self=this;
     self.init = function ( callback ) {
       console.log("init");
-      self.store.onChange = function(){self.render();};
+      self.store.onChange = function(){self.notify();};
       self.instance_items.element = ccm.helper.find( this, '.ite' );  // Set website area for
       self.instance_chat.element = ccm.helper.find( this, '.chat' );  // both ccm instances.
       callback();
@@ -29,6 +29,13 @@ ccm.component( {              // This component is also available in this
       self.instance_items.render();    // Embeds each of both ccm instances
       self.instance_chat.render();    // in different inner website areas.
 
+
+
+
+
+      if ( callback ) callback();
+    }
+    self.notify = function () {
       self.store.get( self.key,function(data){
         console.log("data:"+ data);
         if(data===null)
@@ -39,17 +46,16 @@ ccm.component( {              // This component is also available in this
 
 
         function proceed(data) {
-          console.log("in pro"+data);
+          console.log("last item autor: "+data.items[data.items.length-1].user);
 
         }
 
       }
       );
-
-
-
-      if ( callback ) callback();
     }
+
+
+
   }
 } );
 
