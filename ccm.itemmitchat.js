@@ -7,7 +7,7 @@
 ccm.component( {              // This component is also available in this
   name: 'itemmitchat',         // GitHub repository (akless/ccm-developer).
   config: {
-    instance_items: [ ccm.instance, 'http://mutex.fail/jk/ccm.itemverwaltung.js' ],
+    instance_items: [ ccm.instance, ' http://joelkarp.github.io/ab3/ccm.itemverwaltung.js' ],
     instance_chat: [ ccm.instance, 'http://mutex.fail/bk/ccm.messenger.js' ],
     style: [ccm.load,'style.css'],
     key : 'itemtestverwaltungmitdatumundloeschen',
@@ -68,7 +68,7 @@ ccm.component( {              // This component is also available in this
             function proceedChat(dataChat) {
 
 
-              dataChat.messages.push( { user: "jkarp2s", datum: getTime() ,text: "veränderung" } );
+              dataChat.messages.push( { user: "ToDo liste", datum: getTime() ,text: "veränderung" } );
 
               self.storechat.set( dataChat, function () { self.render(); } );
 
