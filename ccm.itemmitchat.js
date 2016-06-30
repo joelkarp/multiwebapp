@@ -4,12 +4,13 @@
     component_chat:[ccm.component,'http://mutex.fail/jk/ccm.itemverwaltung.js'],
 */
 
-ccm.component( {              // This component is also available in this
-  name: 'itemmitchat',         // GitHub repository (akless/ccm-developer).
+ccm.component( {
+  name: 'itemmitchat',
   config: {
-    instance_items: [ ccm.instance, ' http://joelkarp.github.io/ab3/ccm.itemverwaltung.js' ],
-    instance_chat: [ ccm.instance, 'http://mutex.fail/bk/ccm.messenger.js' ],
-    style: [ccm.load,'style.css'],
+    instance_items: [ ccm.instance, 'http://www2.inf.fh-bonn-rhein-sieg.de/~jkarp2s/ab3/ccm.itemverwaltung.js' ],
+    //instance_chat: [ ccm.instance, 'http://www2.inf.fh-bonn-rhein-sieg.de/~bkharb2s/ab3/ccm.messenger.js' ],
+    instance_chat: [ ccm.instance, 'http://www2.inf.fh-bonn-rhein-sieg.de/~bkharb2s/ab4/we_PHASE4/ccm.messenger.js' ],
+    style: [ccm.load,'http://www2.inf.fh-bonn-rhein-sieg.de/~jkarp2s/ab4/style.css'],
     key : 'itemtestverwaltungmitdatumundloeschen',
     store: [ccm.store,{url: 'ws://ccm2.inf.h-brs.de/index.js', store: 'itemstore'}],
     keyChat :'testmessenger',
@@ -22,8 +23,8 @@ ccm.component( {              // This component is also available in this
     self.init = function ( callback ) {
       console.log("init");
       self.store.onChange = function(){self.notify();};
-      self.instance_items.element = ccm.helper.find( this, '.ite' );  // Set website area for
-      self.instance_chat.element = ccm.helper.find( this, '.chat' );  // both ccm instances.
+      self.instance_items.element = ccm.helper.find( this, '.ite' );
+      self.instance_chat.element = ccm.helper.find( this, '.chat' );
 
       callback();
     };
@@ -31,8 +32,8 @@ ccm.component( {              // This component is also available in this
         console.log("render");
       var element = ccm.helper.element( this );
       element.html( '<div class="ite"></div><div class="chat"></div>' );
-      self.instance_items.render();    // Embeds each of both ccm instances
-      self.instance_chat.render();    // in different inner website areas.
+      self.instance_items.render();
+      self.instance_chat.render();
 
 
 
