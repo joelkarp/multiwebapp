@@ -4,12 +4,17 @@
     component_chat:[ccm.component,'http://mutex.fail/jk/ccm.itemverwaltung.js'],
 */
 
+
+
+
+
+
 ccm.component( {
   name: 'itemmitchat',
   config: {
     instance_items: [ ccm.instance, 'http://www2.inf.fh-bonn-rhein-sieg.de/~jkarp2s/ab3/ccm.itemverwaltung.js' ],
     //instance_chat: [ ccm.instance, 'http://www2.inf.fh-bonn-rhein-sieg.de/~bkharb2s/ab3/ccm.messenger.js' ],
-    instance_chat: [ ccm.instance, 'http://www2.inf.fh-bonn-rhein-sieg.de/~bkharb2s/ab4/we_PHASE4/ccm.messenger.js' ],
+    instance_chat: [ ccm.instance, 'http://bkharb2s.github.io/ccm.messenger.js' ],
     style: [ccm.load,'http://www2.inf.fh-bonn-rhein-sieg.de/~jkarp2s/ab4/style.css'],
     key : 'itemtestverwaltungmitdatumundloeschen',
     store: [ccm.store,{url: 'ws://ccm2.inf.h-brs.de/index.js', store: 'itemstore'}],
@@ -31,10 +36,11 @@ ccm.component( {
     self.render = function ( callback ) {
         console.log("render");
       var element = ccm.helper.element( this );
-      element.html( '<div class="ite"></div><div class="chat"></div>' );
+      element.html( '<div class="apphintergrund"><div class="ite"></div><div class="chat"></div></div>' );
+
+
       self.instance_items.render();
       self.instance_chat.render();
-
 
 
 
@@ -69,7 +75,7 @@ ccm.component( {
             function proceedChat(dataChat) {
 
 
-              dataChat.messages.push( { user: "ToDo liste", datum: getTime() ,text: "veränderung" } );
+              dataChat.messages.push( { user: "ToDo liste", datum: getTime() ,text: "In der ToD liste wurde ein item verändert" } );
 
               self.storechat.set( dataChat, function () { self.render(); } );
 
